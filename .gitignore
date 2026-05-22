@@ -56,3 +56,7 @@ mlruns/
 
 .link-cache.json
 .claude/
+# Model checkpoints
+*.pt
+*.pth
+*.safetensors
