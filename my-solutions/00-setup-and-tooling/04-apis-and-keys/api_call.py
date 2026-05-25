@@ -12,7 +12,7 @@ client = anthropic.Anthropic()
 print("Client created successfully")
 
 response = client.messages.create(
-    model="claude-sonnet-4-6",
+    model="claude-3-haiku-20240307",
     max_tokens=256,
     messages=[{"role": "user", "content": "What is a neural network in one sentence?"}]
 )
