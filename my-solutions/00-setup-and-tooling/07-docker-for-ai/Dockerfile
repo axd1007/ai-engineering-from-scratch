@@ -22,12 +22,12 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1
 RUN python -m pip install --no-cache-dir --upgrade pip setuptools wheel
 
 RUN python -m pip install --no-cache-dir --timeout=300 \
-    torch torchvision torchaudio \
+    torch==2.5.1+cu124 torchvision torchaudio \
     --index-url https://download.pytorch.org/whl/cu124
 
-RUN python -m pip install --no-cache-dir \
+RUN python -m pip install --no-cache-dir --ignore-installed \
     numpy pandas scikit-learn matplotlib \
-    jupyter transformers datasets accelerate safetensors
+    jupyter transformers datasets accelerate safetensors flask
 
 WORKDIR /workspace
 VOLUME ["/workspace", "/models"]
