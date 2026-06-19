@@ -144,3 +144,21 @@ if __name__ == "__main__":
     print(f"Weight shape: {weights.shape}")
     print(f"Output shape: {output.shape}")
     print(f"Output: {output.data}")
+
+    print("\n=== Exercise 1: Verify inverse on 3 matrices ===")
+    test_matrices = [
+        Matrix([[1, 2], [3, 4]]),
+        Matrix([[2, 0], [0, 2]]),
+        Matrix([[4, 7], [2, 6]]),
+    ]
+    for i, M in enumerate(test_matrices):
+        check = M.matmul(M.inverse_2x2())
+        print(f"M{i+1} @ M{i+1}^-1 = {check.data} (det={M.determinant()})")
+
+    print("\nSingular matrix case:")
+    singular = Matrix([[1, 2], [2, 4]])
+    print(f"det = {singular.determinant()}")
+    try:
+        singular.inverse_2x2()
+    except ValueError as e:
+        print(f"Caught error: {e}")
